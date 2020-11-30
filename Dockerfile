@@ -3,7 +3,7 @@
 # Version 0.1
 
 # This is an initial iteration and subject to change
-FROM quay.io/alfresco/alfresco-base-java:8u181-oracle-centos-7-ebbcd20c6bf4
+FROM alfresco/alfresco-base-java:8u181-oracle-centos-7-ebbcd20c6bf4
 
 LABEL name="Alfresco ActiveMQ" \
     vendor="Alfresco" \
@@ -33,7 +33,7 @@ RUN mkdir -p ${ACTIVEMQ_HOME} /data /var/log/activemq  && \
 RUN groupadd -g ${GROUPID} ${GROUPNAME} && \
     useradd -u ${USERID} -G ${GROUPNAME} ${USERNAME} && \
     chgrp -R ${GROUPNAME} ${ACTIVEMQ_HOME} && \
-    chown -h ${USERNAME}:${GROUPNAME} $ACTIVEMQ_HOME && \
+    chown -h ${USERNAME}:${GROUPNAME} ${ACTIVEMQ_HOME} && \
     chown ${USERNAME}:${GROUPNAME} ${ACTIVEMQ_DATA}/activemq.log && \
     chmod g+rwx ${ACTIVEMQ_DATA}
 
